@@ -62,14 +62,14 @@ Resources:
             - !Ref SourceSecurityGroup
           Subnets: !Ref Subnets
       LoadBalancers:
-        - ContainerName: python-rm1-container
+        - ContainerName: hello-world-fastapi-container
           ContainerPort: 80
           TargetGroupArn: !Ref TargetGroup
 
   TaskDefinition:
     Type: AWS::ECS::TaskDefinition
     Properties:
-      Family: !Sub ${AWS::StackName}-python-rm1
+      Family: !Sub ${AWS::StackName}-hello-world-fastapi
       RequiresCompatibilities:
         - "FARGATE"
       Memory: 512
@@ -77,7 +77,7 @@ Resources:
       NetworkMode: "awsvpc"
       ExecutionRoleArn: !Ref TaskExecutionRole
       ContainerDefinitions:
-        - Name: python-rm1-container
+        - Name: hello-world-fastapi-container
           Image: 735834324414.dkr.ecr.eu-central-1.amazonaws.com/pipeline-bootstrap:latest
           Essential: true
           Memory: 256

@@ -10,7 +10,7 @@ Parameters:
 
   GitHubRepo:
     Type: String
-    Default: python-rm1
+    Default: hello-world-fastapi
     Description: The repo name of the sample service.
 
   GitHubBranch:

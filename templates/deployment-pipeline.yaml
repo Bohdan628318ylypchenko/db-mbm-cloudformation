@@ -126,12 +126,12 @@ Resources:
                 - IMAGE_URI="${REPOSITORY_URI}:${TAG}"
             build:
               commands:
-                - docker build -t python-rm1 .
-                - docker tag python-rm1:latest "$IMAGE_URI"
+                - docker build -t hello-world-fastapi .
+                - docker tag hello-world-fastapi:latest "$IMAGE_URI"
             post_build:
               commands:
                 - docker push "$IMAGE_URI"
-                - printf '[{"name":"python-rm1-container","imageUri":"%s"}]' "$IMAGE_URI" > images.json
+                - printf '[{"name":"hello-world-fastapi-container","imageUri":"%s"}]' "$IMAGE_URI" > images.json
           artifacts:
             files: images.json
       Environment:
